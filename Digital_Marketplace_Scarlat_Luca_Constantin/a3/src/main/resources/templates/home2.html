@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+</head>
+<body>
+<h1>This is home page.</h1>
+</body>
+<form th:action="@{/become_seller}" method="get">
+  <button class="btn btn-md btn-warning btn-block" type="Submit">Become a seller</button>
+</form>
+<form th:action="@{/product_registration}" method="get">
+  <button class="btn btn-md btn-warning btn-block" type="Submit">Register a product</button>
+</form>
+<form th:action="@{/get_all_products}" method="get">
+  <button class="btn btn-md btn-warning btn-block" type="Submit">List all products.</button>
+</form>
+</html>
