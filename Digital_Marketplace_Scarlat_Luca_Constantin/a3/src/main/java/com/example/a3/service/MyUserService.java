@@ -48,7 +48,7 @@ public class MyUserService {
 
     public void becomeSeller(User user){
         Set<Role> roles=user.getRoles();
-        roles.add(roleRepository.findByRole("SELLER"));
+        roles.add(roleRepository.findByRole("PRODUCT_SELLER"));
         user.setRoles(roles);
         userRepository.save(user);
     }

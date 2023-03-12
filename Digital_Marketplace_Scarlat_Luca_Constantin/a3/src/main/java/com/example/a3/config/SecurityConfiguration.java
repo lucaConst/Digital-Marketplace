@@ -51,17 +51,17 @@ public class SecurityConfiguration {
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/registration").permitAll()
-                .requestMatchers("/home2","/get_all_products").hasAnyAuthority("BUYER","SELLER","ADMIN")
+                .requestMatchers("/index","/get_all_products").hasAnyAuthority("BUYER","PRODUCT_SELLER","ADMIN")
                 .requestMatchers("/admin").hasAuthority("ADMIN")
-                .requestMatchers("/product_registration").hasAuthority("SELLER")
-                .requestMatchers("/test").hasAuthority("BUYER")
+                .requestMatchers("/register_new_product").hasAnyAuthority("PRODUCT_SELLER","ADMIN")
+                .requestMatchers("/test").hasAuthority("PRODUCT_SELLER")
                 .requestMatchers("/become_seller").hasAuthority("BUYER")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin().loginPage("/login").
                 failureUrl("/login?error=true").
-                defaultSuccessUrl("/home2").
+                defaultSuccessUrl("/index").
                 usernameParameter("user_name").passwordParameter("password").
                 and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).
                 logoutSuccessUrl("/login").

@@ -1,10 +1,7 @@
 package com.example.a3.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name="products")
@@ -19,9 +16,15 @@ public class Product {
     @Column
     private Long id;
 
+    public Product(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     @Column
     private String name;
 
+    @Column
     private String description;
 
 }
