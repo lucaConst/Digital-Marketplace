@@ -102,26 +102,5 @@ public class AuthController {
         modelAndView.setViewName("test");
         return modelAndView;
     }
-    @RequestMapping(value = "/register_new_product", method = RequestMethod.GET)
-    public ModelAndView registration_products() {
-        ModelAndView modelAndView = new ModelAndView();
-        Product product=new Product();
-        modelAndView.addObject("product", product);
-        modelAndView.setViewName("register_new_product");
-        return modelAndView;
-    }
 
-    @RequestMapping(value = "/register_new_product", method = RequestMethod.POST)
-    public ModelAndView createNewProduct(String product_name,String description) {
-
-        ModelAndView modelAndView = new ModelAndView();
-        Product product = new Product(product_name,description);
-
-        productService.saveProduct(product);
-        modelAndView.addObject("successMessage", "Product has been registered successfully");
-        modelAndView.addObject("product", new Product());
-        modelAndView.setViewName("register_new_product");
-
-        return modelAndView;
-    }
 }

@@ -31,10 +31,10 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="description" th:field="*{description}"
-                               placeholder="Description" class="form-control"/> <label
-                            th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                            class="validation-message"></label>
+                        <label th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                               class="validation-message"></label>
+                        <input type="text" th:field="*{description}" placeholder="Description"
+                               class="form-control"/>
                     </div>
                 </div>
 
